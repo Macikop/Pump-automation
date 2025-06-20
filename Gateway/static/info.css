@@ -1,0 +1,31 @@
+input[type="submit"]{
+    height: 1.5rem;
+    border-radius: 5px;
+    background-color: var(--primary-variant);
+    border-color: var(--background-variant);
+}
+
+input[value="back"]{
+    width: 8ch;
+
+}
+
+input[value="kasowanie"]{
+    width: 10ch;
+}
+
+#container {
+    width: fit-content;
+    margin-inline: auto;
+    text-align: center;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table,td,th{
+    border: 1px solid var(--background-variant);
+
+}

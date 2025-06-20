@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="/static/pompa.ico">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pompa w ogródku</title>
+</head>
+<body>
+    <h1 style="text-align:center;">Pompa w ogródku</h1>
+    <div id="container">
+        
+        <div id="pump-state">
+            <span>Stan pompy:</span>
+            <div>
+                <img src="/static/power_button.svg" {% if not state %}style="filter:grayscale(100%);"{% endif %}>
+                <img src="/static/{% if below_level %}empty{% else %}full{% endif %}.svg" >
+                <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 -960 960 960" width="100%" {% if not overpressure %}style="transform:scaleX(-1);" fill =#4ead1f {% else %} fill =  #791fad {% endif %}><path d="M418-340q24 24 62 23.5t56-27.5l224-336-336 224q-27 18-28.5 55t22.5 61Zm62-460q59 0 113.5 16.5T696-734l-76 48q-33-17-68.5-25.5T480-720q-133 0-226.5 93.5T160-400q0 42 11.5 83t32.5 77h552q23-38 33.5-79t10.5-85q0-36-8.5-70T766-540l48-76q30 47 47.5 100T880-406q1 57-13 109t-41 99q-11 18-30 28t-40 10H204q-21 0-40-10t-30-28q-26-45-40-95.5T80-400q0-83 31.5-155.5t86-127Q252-737 325-768.5T480-800Zm7 313Z"/></svg> 
+            </div>
+
+        </div> 
+
+        <h3 style="text-align:center;">Włącznik pompy</h3>
+
+            <form style="text-align:center;" method="post" action="/">
+                <input class = "on-off-button {% if state %}pressed-button{% endif %}" type="submit" value="ON" name="turn_on" {% if state %} disabled {% endif %}/>
+                <input class = "on-off-button {% if not state %}pressed-button{% endif %}" type="submit" value="OFF" name="turn_off" />
+            </form>
+
+            <a style="text-align:center;" href="/">
+                <input type="submit" value="Odśwież" name="refresh"/>
+            </a>
+        <p style="text-align:center;">Zobacz więcej danych o pompie</p>
+
+            <a style="text-align:center;" href="/info">
+                <input type="submit" value="Więcej o pompie" name="debug"/>
+            </a>
+    </div>
+</body>
+</html> 
+

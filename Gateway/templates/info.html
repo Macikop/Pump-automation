@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="/static/pompa.ico">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="/static/info.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<title>Pompa w ogródku</title>
+</head>
+<body>
+
+
+<p style="text-align:center;"> Pompa jest aktualna</p>
+    <div id="container">
+        <form method="post" action="/info">
+            <input type="submit" value="Get status" name="get_info"/>
+        </form>
+        <form method="post" action="/info">
+            <input type="submit" value="kasowanie" name="kasowanie"/>
+        </form>
+        <a href="/">
+            <input type="submit" value="Powrót" name="back"/>
+        </a>
+    </div>
+<table style="text-align:center; margin-inline:auto;">
+    <tr>
+        <th>
+            time 
+        </th>
+        <th colspan="10">
+            data
+        </th>
+    </tr>
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            Emergency
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Overpressure
+        </th>
+        <th>
+            Below Level
+        </th>
+        <th>
+            Full Tank
+        </th>
+        <th>
+            Overheat
+        </th>
+        <th>
+            Error Code
+        </th>
+        <th>
+            Water Level
+        </th>
+        <th>
+            Reserved
+        </th>
+        <th>
+            Message Counter
+        </th>
+    </tr>
+    {%for message in messages%}
+    <tr>
+        <td>
+            {{ message["time"] }}
+        </td>
+        {%for key, data in message["data"].items()%}
+        <td>
+            {{ data }}
+        </td>
+        {%endfor%}    
+    </tr>
+    {%endfor%}
+</table>
+
+
+</body>
+</html> 
+

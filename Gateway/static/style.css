@@ -1,0 +1,13 @@
+:root {
+--background-color: #0988a9;
+--background-variant: #0e4f68;
+--secondary: #112434;
+--primary-variant: #03d0f2;
+--primary: #0ffff8;}
+
+body {
+    background-color: var(--background-color);
+    color: var(--primary);
+    font-family: "Tinos", serif;
+}
+
